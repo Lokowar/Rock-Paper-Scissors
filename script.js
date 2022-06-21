@@ -1,9 +1,23 @@
-game()
+menu()
 
-function game(){
+function menu(){
     console.log("-- PEDRA, PAPEL, TESOURA --")
     console.log("Faça sua escolha")
-    const input = prompt()
+    /* MOUSE */
+    window.onload = function(){
+        let div1 = document.querySelector('#btn1');
+        div1.addEventListener('click', (event) => {game(input = 'papel')});
+
+        let div2 = document.querySelector('#btn2');
+        div2.addEventListener('click', (event) => {game(input = 'pedra')});
+
+        let div3 = document.querySelector('#btn3');
+        div3.addEventListener('click', (event) => {game(input = 'tesoura')});
+    }
+}
+
+function game(input){
+    /* MECANICA */
     const player = playerSelection(input)
     const ai = computerPlay()
     const computer = computerSelection(ai)
@@ -13,31 +27,38 @@ function game(){
 
 function playRound(playerSelection, computerSelection){
     if (playerSelection === computerSelection){
-        console.log("empate")
+        var paragrafo = document.getElementById('r');
+        paragrafo.textContent = "Empate";
     }
 
     if (playerSelection === "pedra" && computerSelection === "tesoura"){
-        console.log("Jogador venceu")
+        var paragrafo = document.getElementById('r');
+        paragrafo.textContent = "Vitória";
     }
 
     if (playerSelection === "papel" && computerSelection === "pedra"){
-        console.log("Jogador venceu")
+        var paragrafo = document.getElementById('r');
+        paragrafo.textContent = "Vitória";
     }
 
     if (playerSelection === "tesoura" && computerSelection === "papel"){
-        console.log("Jogador venceu")
+        var paragrafo = document.getElementById('r');
+        paragrafo.textContent = "Vitória";
     }
 
     if (playerSelection === "tesoura" && computerSelection === "pedra"){
-        console.log("CPU venceu")
+        var paragrafo = document.getElementById('r');
+        paragrafo.textContent = "Perdeu";
     }
 
     if (playerSelection === "pedra" && computerSelection === "papel"){
-        console.log("CPU venceu")
+        var paragrafo = document.getElementById('r');
+        paragrafo.textContent = "Perdeu";
     }
 
     if (playerSelection === "papel" && computerSelection === "tesoura"){
-        console.log("CPU venceu")
+        var paragrafo = document.getElementById('r');
+        paragrafo.textContent = "Perdeu";
     }
 }
 
